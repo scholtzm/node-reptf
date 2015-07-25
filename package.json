@@ -1,0 +1,25 @@
+{
+  "name": "reptf",
+  "version": "0.0.1",
+  "description": "rep.tf API Wrapper for node.js",
+  "main": "index.js",
+  "author": {
+    "name": "Michael Scholtz",
+    "email": "michael.scholtz@outlook.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "steam",
+    "steamid",
+    "steamrep",
+    "reputation",
+    "reptf"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scholtzm/node-reptf.git"
+  },
+  "dependencies": {
+    "request": "^2.60.0"
+  }
+}
