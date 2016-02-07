@@ -2,6 +2,7 @@
 
 [![NPM version](http://img.shields.io/npm/v/reptf.svg?style=flat)](https://www.npmjs.org/package/reptf)
 [![Dependency Status](https://david-dm.org/scholtzm/node-reptf.svg)](https://david-dm.org/scholtzm/node-reptf)
+[![Build Status](https://travis-ci.org/scholtzm/node-reptf.svg?branch=master)](https://travis-ci.org/scholtzm/node-reptf)
 
 Very thin wrapper for the API provided by [rep.tf](http://rep.tf).
 
@@ -16,15 +17,15 @@ var reptf = require('reptf');
 
 // All methods are "static"
 reptf.getBans('76561197960435530', function(err, res) {
-    if(!err) {
-        console.log(res);
-    }
+  if(!err) {
+    console.log(res);
+  }
 });
 
 reptf.getProfile('76561197960435530', function(err, res) {
-    if(!err) {
-        console.log(res);
-    }
+  if(!err)
+    console.log(res);
+  }
 });
 ```
 
@@ -43,12 +44,16 @@ Timeout value used for HTTP requests. Defaults to 10000ms (10 seconds).
 	- `error` comes from the HTTP request
 	- `result` is object returned by the API
 
+Provides information about user's bans across various gaming communities.
+
 ##### getProfile(steamID, callback)
 
 - `steamID` - user's SteamID64 as string
 - `callback` - should be `function(error, result)`
 	- `error` comes from the HTTP request
 	- `result` is object returned by the API
+
+Provides information about user's overall Steam profile.  
 
 ### License
 

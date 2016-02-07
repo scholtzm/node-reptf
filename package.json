@@ -21,12 +21,16 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "lintfix": "eslint . --fix"
+    "lintfix": "eslint . --fix",
+    "test": "mocha"
   },
   "dependencies": {
-    "request": "^2.60.0"
+    "request": "^2.69.0"
   },
   "devDependencies": {
-    "eslint": "^1.10.3"
+    "chai": "^3.5.0",
+    "eslint": "^1.10.3",
+    "mocha": "^2.4.5",
+    "nock": "^7.0.2"
   }
 }
