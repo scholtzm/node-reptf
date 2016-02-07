@@ -1,9 +1,29 @@
 var request = require('request');
 
+function doRequest(url, steamID, timeout, callback) {
+  var options = {
+    url: url,
+    method: 'POST',
+    timeout: timeout,
+    json: true,
+    qs: {
+      str: steamID
+    }
+  };
+
+  request(options, function(error, response, body) {
+    if(!error && response.statusCode === 200) {
+      callback(null, body);
+    } else {
+      callback(error, null);
+    }
+  });
+}
+
 // Main API object
 var repTFAPI = {
-  _BANS_URL: 'http://rep.tf/api/bans?str=',
-  _PROFILE_URL: 'http://rep.tf/api/profile?str=',
+  _BANS_URL: 'https://rep.tf/api/bans',
+  _PROFILE_URL: 'https://rep.tf/api/profile',
 
   // default timeout value
   timeout: 10000
@@ -15,22 +35,7 @@ var repTFAPI = {
  * @param {function} callback Callback function.
  */
 repTFAPI.getBans = function(steamID, callback) {
-  var finalUrl = this._BANS_URL + steamID;
-
-  var options = {
-    url: finalUrl,
-    method: 'POST',
-    timeout: this.timeout,
-    json: true
-  };
-
-  request(options, function(error, response, body) {
-    if(!error && response.statusCode === 200) {
-      callback(null, body);
-    } else {
-      callback(error, null);
-    }
-  });
+  doRequest(this._BANS_URL, steamID, this.timeout, callback);
 };
 
 /**
@@ -39,22 +44,7 @@ repTFAPI.getBans = function(steamID, callback) {
  * @param {function} callback Callback function.
  */
 repTFAPI.getProfile = function(steamID, callback) {
-  var finalUrl = this._PROFILE_URL + steamID;
-
-  var options = {
-    url: finalUrl,
-    method: 'POST',
-    timeout: this.timeout,
-    json: true
-  };
-
-  request(options, function(error, response, body) {
-    if(!error && response.statusCode === 200) {
-      callback(null, body);
-    } else {
-      callback(error, null);
-    }
-  });
+  doRequest(this._PROFILE_URL, steamID, this.timeout, callback);
 };
 
 // Export API object
