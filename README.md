@@ -15,6 +15,9 @@ Very thin wrapper for the API provided by [rep.tf](http://rep.tf).
 ```js
 var reptf = require('reptf');
 
+// You can change the timeout value if you wish
+reptf.timeout = 5000;
+
 // All methods are "static"
 reptf.getBans('76561197960435530', function(err, res) {
   if(!err) {
@@ -44,7 +47,7 @@ Timeout value used for HTTP requests. Defaults to 10000ms (10 seconds).
 	- `error` comes from the HTTP request
 	- `result` is object returned by the API
 
-Provides information about user's bans across various gaming communities.
+Provides information about user's bans across various trading communities.
 
 ##### getProfile(steamID, callback)
 
