@@ -19,7 +19,14 @@
     "type": "git",
     "url": "https://github.com/scholtzm/node-reptf.git"
   },
+  "scripts": {
+    "lint": "eslint .",
+    "lintfix": "eslint . --fix"
+  },
   "dependencies": {
     "request": "^2.60.0"
+  },
+  "devDependencies": {
+    "eslint": "^1.10.3"
   }
 }
