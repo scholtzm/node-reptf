@@ -28,6 +28,12 @@ reptf.getProfile('76561197960435530', function(err, res) {
 });
 ```
 
+### Properties
+
+##### timeout
+
+Timeout value used for HTTP requests. Defaults to 10000ms (10 seconds).
+
 ### Methods
 
 ##### getBans(steamID, callback)

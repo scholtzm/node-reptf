@@ -1,11 +1,12 @@
 var request = require('request');
 
-var timeout = 10000; // 10s, hardcoded for now
-
 // Main API object
 var repTFAPI = {
   _BANS_URL: 'http://rep.tf/api/bans?str=',
-  _PROFILE_URL: 'http://rep.tf/api/profile?str='
+  _PROFILE_URL: 'http://rep.tf/api/profile?str=',
+
+  // default timeout value
+  timeout: 10000
 };
 
 /**
@@ -19,7 +20,7 @@ repTFAPI.getBans = function(steamID, callback) {
   var options = {
     url: finalUrl,
     method: 'POST',
-    timeout: timeout,
+    timeout: this.timeout,
     json: true
   };
 
@@ -43,7 +44,7 @@ repTFAPI.getProfile = function(steamID, callback) {
   var options = {
     url: finalUrl,
     method: 'POST',
-    timeout: timeout,
+    timeout: this.timeout,
     json: true
   };
 
